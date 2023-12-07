@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Proyecto final</title>
+  <link href="https://db.onlinewebfonts.com/c/12420e8c141ca7c3dff41de2d59df13e?family=Beaufort+for+LOL+Bold"
+    rel="stylesheet">
+  <link href="https://db.onlinewebfonts.com/c/78ebd3a65d9941a81b63c90991231007?family=NotoSans" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="css/site.css" rel="stylesheet" />
+  <link href="css/estilos.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div id="bienvenida" class="bienvenida">
+    <div class="menu-nav">
+      <button id="cerrar-menu" class="cerrar-menu" aria-label="Cerrar">&times;</button>
+      <ul>
+        <li id="opcion1"><a href="#">Campos de la Justicia</a></li>
+        <li id="opcion2"><a href="#">Arenas de Shurima</a></li>
+        <li id="opcion3"><a href="#">El Toque del Vacío</a></li>
+        <li id="tarjeta"><img src="images/TFT_SET923_WEB_SetOverview_Header-Background_v001_ASteme.jpg" alt=""></li>
+      </ul>
+    </div>
+    <div class="bienvenida-nav">
+      <h1 data-aos="zoom-out-down">TFT - MEMORAMA</h1>
+      <div class="bienvenida-botones">
+        <button id="juego-relax" class="boton-con-hover" data-aos="fade-up-right">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 3 3 L 185 3 L 205 33 L 205 338.79998779296875 L 3 338.79998779296875 Z" fill="none"
+              stroke="rgb(4, 16, 44)" stroke-width="4" />
+          </svg>
+          <img src="images/Teemo_01.png" alt="">
+          MODO RELAX
+          <p class="texto-hover">¡Juega sin límites y diviértete!</p>
+        </button>
+        <button id="juego-normal" class="boton-con-hover" data-aos="fade-up">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 3 3 L 185 3 L 205 33 L 205 338.79998779296875 L 3 338.79998779296875 Z" fill="none"
+              stroke="rgb(4, 16, 44)" stroke-width="4" />
+          </svg>
+          <img src="images/DevilTeemo_02.png" alt="">
+          ¡QUIERO JUGAR!
+          <p class="texto-hover">Para los amantes de lo extremo</p>
+        </button>
+        <button id="mostrar-menu" class="boton-con-hover" data-aos="fade-up-left">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 3 3 L 185 3 L 205 33 L 205 338.79998779296875 L 3 338.79998779296875 Z" fill="none"
+              stroke="rgb(4, 16, 44)" stroke-width="4" />
+          </svg>
+          <img src="images/Poro_03.png" alt="">
+          AJUSTES
+          <p class="texto-hover">Elije el tablero que más te guste</p>
+        </button>
+      </div>
+    </div>
+  </div>
+  <header class="cabecera">
+    <div class="contadores">
+      <div class="contador-item">
+        <h4 class="cabecera-titulo">Movimientos</h4>
+        <div class="cabecera-num">
+          <span id="mov">00</span>/<span id="mov-total">20</span>
+        </div>
+      </div>
+      <div id="cronometro" class="contador-item">
+        <h4 class="cabecera-titulo">Tiempo</h4>
+        <div class="cabecera-num">
+          <span id="minutos">00</span>:<span id="segundos">00</span>
+        </div>
+      </div>
+    </div>
+    <div class="niveles">
+      <h4 class="cabecera-titulo">Nivel</h4>
+      <div class="cabecera-num"><span id="nivel">01</span></div>
+    </div>
+    <button id="control-nivel" class="control-nivel btnPro"></button>
+  </header>
+  <main>
+    <div id="mesa" class="mesa"></div>
+    <div id="subeNivel" class="sube-nivel">
+      <div class="modal">
+        <h2>¡MUY BIEN!</h2>
+        <button id="subir" class="btnSecundario btnPro">Siguiente nivel</button>
+        <button class="reiniciar">Reiniciar</button>
+      </div>
+    </div>
+    <div id="gameOver" class="game-over">
+      <div class="modal">
+        <h2>¡OH NO!</h2>
+        <p>Te has quedado sin movimientos</p>
+        <button class="reiniciar">Reiniciar</button>
+      </div>
+    </div>
+    <div id="timeOver" class="game-over">
+      <div class="modal">
+        <h2>¡OH NO!</h2>
+        <p>Te has quedado sin tiempo</p>
+        <button class="reiniciar">Reiniciar</button>
+      </div>
+    </div>
+    <div id="endGame" class="end-game">
+      <div class="modal">
+        <h2>¡ES TODO!</h2>
+        <p>Has superado todos<br>los niveles</p>
+        <p>¡Gracias por jugar!<br>💜</p>
+        <button class="reiniciar">Reiniciar</button>
+      </div>
+    </div>
+  </main>
+  <div class="selecciona-nivel">
+    <button id="cierra-niveles" class="cerrar-menu" aria-label="Cerrar">&times;</button>
+    <ul></ul>
+  </div>
+
+  <audio src="sonidos/acierto.mp3" class="sonido" id="sonido-acierto" preload="auto"></audio>
+  <audio src="sonidos/error.mp3" class="sonido" id="sonido-error" preload="auto"></audio>
+  <audio src="sonidos/carta.mp3" class="sonido" id="sonido-carta" preload="auto"></audio>
+  <audio src="sonidos/Fragments from Runeterra (Pt. 1).mp3" class="sonido" id="sonido-juego" preload="auto"></audio>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="js/menu-nav.js"></script>
+  <script src="js/variables-globales.js"></script>
+  <script src="js/descubrir-comparar.js"></script>
+  <script src="js/baraja-reparte.js"></script>
+  <script src="js/acierto-error.js"></script>
+  <script src="js/contador.js"></script>
+  <script src="js/cronometro.js"></script>
+  <script src="js/finalizar.js"></script>
+  <script src="js/cambia-nivel.js"></script>
+  <script src="js/game-over.js"></script>
+  <script src="js/menu-niveles.js"></script>
+  <script src="js/iniciar.js"></script>
+  <script src="js/comienza-juego.js"></script>
+</body>
+
+</html>

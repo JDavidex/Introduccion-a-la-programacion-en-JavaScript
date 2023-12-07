@@ -1,0 +1,561 @@
+body {
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-image: url(../images/TFT_SET923_WEB_SetOverview_Header-Background_v001_ASteme.jpg);
+  background-size: cover;
+}
+
+.menu-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: #1f1f1f;
+  padding: 1rem 2rem;
+  transform: translateX(-250px);
+  transition: transform .3s;
+  font-family: var(--font-display);
+  text-align: center;
+}
+
+.menu-nav.visible {
+  transform: translateX(0);
+}
+
+.menu-nav ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.menu-nav li {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+#tarjeta img {
+  width: 100%;
+  border-radius: 0.3em;
+}
+
+.menu-nav a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.cerrar-menu {
+  background: #a1a1a111 !important;
+  height: 50px;
+  width: 50px;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  right: 2rem;
+  top: 1.5rem;
+  padding: .9rem 0 !important;
+  font-size: 1rem !important;
+  border-radius: 1em;
+}
+
+.bienvenida {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  flex-grow: 1;
+  background-image: url(../images/TFT_SET923_WEB_SetOverview_Header-Background_v001_ASteme.jpg);
+  background-size: cover;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.bienvenida.visible {
+  display: flex;
+}
+
+.bienvenida-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bienvenida h1 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-style: italic;
+  font-size: 5rem;
+  margin-top: 0;
+  color: white;
+}
+
+.bienvenida-botones {
+  display: grid;
+  grid: 1fr / repeat(3, 1fr);
+}
+
+.bienvenida-botones button img {
+  transition: transform 0.75s ease;
+  z-index: 1;
+}
+
+.bienvenida-botones button img:hover {
+  transform: translateY(-60px);
+}
+
+.boton-con-hover {
+  position: relative;
+}
+
+.boton-con-hover svg {
+  width: 100%;
+  height: 120%;
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  z-index: 1;
+}
+
+.texto-hover {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  font-size: 1rem;
+  font-family: var(--font);
+  width: 70%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.boton-con-hover:hover .texto-hover {
+  opacity: 1;
+}
+
+.voltear {
+  transform: rotateY(-180deg);
+  transition: transform 1s ease;
+}
+
+.bienvenida button {
+  padding: 2rem 0;
+  margin: 0 1rem;
+}
+
+.cabecera {
+  padding: 0.5rem 2rem;
+  background: rgba(4, 16, 44, 0.5);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.cabecera-titulo {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0;
+  color: white;
+}
+
+.cabecera-num {
+  font-family: var(--font-display);
+  color: var(--orange2);
+  font-weight: 400;
+  font-size: 3.5rem;
+  line-height: 0.9;
+}
+
+.contadores {
+  display: flex;
+}
+
+.contador-item {
+  margin-right: 2rem;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.mesa {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  max-width: 56rem;
+  margin: auto;
+  justify-content: center;
+}
+
+.tarjeta {
+  width: 6rem;
+  height: 6rem;
+  margin: 0.5rem;
+  border-radius: 0.3em;
+  background-image: url(../images/tarjetas/TFT_SET923_COMMS_PORO-LEGENDS_v001_ALyu.jpg);
+  background-size: cover;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25), 4px 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition: 0.3s;
+  cursor: pointer;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.tarjeta__contenido {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform: rotateY(-180deg);
+  backface-visibility: hidden;
+  background-color: white;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25), 4px 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 0.3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  padding-top: 0.4rem;
+}
+
+.tarjeta img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  width: 100%;
+  border-radius: 0.3em;
+}
+
+.tarjeta__contenido::selection {
+  background: transparent;
+}
+
+.tarjeta.descubierta {
+  transform: rotateY(-180deg);
+}
+
+@keyframes error {
+
+  10%,
+  90% {
+    transform: rotateY(-180deg) translateX(-1px);
+  }
+
+  20%,
+  80% {
+    transform: rotateY(-180deg) translateX(2px);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: rotateY(-180deg) translateX(-4px);
+  }
+
+  40%,
+  60% {
+    transform: rotateY(-180deg) translateX(4px);
+  }
+}
+
+@keyframes acierto {
+  from {
+    transform: rotateY(-180deg) scale3d(1, 1, 1);
+    opacity: 1;
+  }
+
+  25% {
+    transform: rotateY(-180deg) scale3d(1.1, 1.1, 1.1);
+    opacity: 1;
+  }
+
+  to {
+    transform: rotateY(-180deg) scale3d(1, 1, 1);
+    opacity: 0;
+  }
+}
+
+.acertada {
+  pointer-events: none;
+}
+
+.acertada .tarjeta__contenido {
+  animation: acierto 1.3s ease-in-out forwards;
+}
+
+.error {
+  animation: error 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.sube-nivel,
+.game-over,
+.end-game {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+}
+
+.sube-nivel.visible,
+.game-over.visible,
+.end-game.visible {
+  display: flex;
+}
+
+.modal {
+  position: relative;
+  background: var(--gradient);
+  padding: 3rem 3rem;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  bottom: -10px;
+  left: 10px;
+  border: 5px solid rgb(32, 32, 32);
+  z-index: 0;
+}
+
+.modal h2 {
+  font-style: italic;
+  color: white;
+  font-family: var(--font-display);
+  margin: 0;
+}
+
+.modal p {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.modal button {
+  margin: 3rem 0;
+}
+
+button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  border: 0;
+  background-image: var(--gradient);
+  color: white;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  transition: 0.3s;
+  z-index: 2;
+}
+
+.btnSecundario {
+  font-style: var(--font) !important;
+  font-weight: 500 !important;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  border: 0;
+  background: white;
+  padding: 0.75rem 4rem;
+  color: var(--orange);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  transition: 0.3s;
+  z-index: 2;
+}
+
+.btnPro {
+  border: 0 solid;
+  outline: 1px solid;
+  -webkit-transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  outline-color: rgba(255, 255, 255, 0.5);
+  outline-offset: 0px;
+}
+
+.btnPro:hover {
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+  outline-offset: 15px;
+  outline-color: rgba(255, 255, 255, 0);
+}
+
+.border {
+  border-radius: 0.3em;
+}
+
+.modal .reiniciar {
+  color: white;
+  background: transparent;
+  border: 0;
+  text-transform: capitalize;
+  font-family: var(--font);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.sonido {
+  display: none;
+}
+
+.cronometro-oculto {
+  display: none;
+}
+
+.control-nivel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-size: 1.5rem;
+  top: 2.9rem;
+  right: .5rem;
+  padding: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  line-height: .68rem;
+  display: flex;
+  background: var(--orange2);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.control-nivel::before {
+  content: '↻';
+  font-size: .9rem;
+  position: relative;
+  top: -1px;
+  right: 0;
+}
+
+.control-oculto {
+  display: none;
+}
+
+.selecciona-nivel {
+  display: flex;
+  justify-content: center;
+  background-color: #1f1f1f;
+  position: fixed;
+  width: 250px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform: translateX(250px);
+  transition: transform .3s;
+  padding: 1rem 2rem;
+}
+
+.selecciona-nivel ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.selecciona-nivel.visible {
+  transform: translateX(0);
+}
+
+.selecciona-nivel button {
+  background: transparent;
+  padding: 0;
+}
+
+.selecciona-nivel ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.selecciona-nivel li {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .bienvenida.visible {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    overflow-x: hidden;
+  }
+
+  .bienvenida-nav {
+    margin: 5rem 0;
+  }
+
+  .bienvenida h1 {
+    font-size: 2rem;
+  }
+
+  .bienvenida-botones {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-gap: 50px;
+  }
+
+  .menu-nav,
+  .selecciona-nivel {
+    height: 100vh;
+    z-index: 100;
+  }
+
+  .cabecera {
+    flex-direction: column;
+  }
+
+  .contadores {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .control-nivel {
+    width: 3.1rem;
+    height: 3.1rem;
+    right: 1.5rem;
+  }
+
+  .control-nivel::before {
+    content: '↻';
+    font-size: 2rem;
+    position: relative;
+    top: -2px;
+    right: 1px;
+  }
+}

@@ -1,0 +1,20 @@
+:root {
+  --bg: #fafafa;
+  --font: "NotoSans", sans-serif;
+  --font-display: "Beaufort for LOL Bold", sans-serif;
+  --yellow: #ffdb84;
+  --orange: #d65800;
+  --orange2: #FE7519;
+  --gradient: linear-gradient(to top, var(--orange), var(--yellow));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: var(--font);
+}
